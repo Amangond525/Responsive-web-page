@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <title>Fusion Delights - Savor the moment, indulge in flavor</title>
+</head>
+
+<body>
+    <!----------side bar-------->
+    <div class="sidebar">
+        <!--    logo   -->
+        <h1 class="logo">Food Time</h1>
+        <!-------- Sidebar   ------->
+        <div class="sidebar-menus">
+            <a href="#"><ion-icon name="storefront-outline"></ion-icon> Home </a>
+            <a href="#"><ion-icon name="receipt-outline"></ion-icon> Bills </a>
+            <a href="#"><ion-icon name="wallet-outline"></ion-icon> Wallet </a>
+            <a href="#"><ion-icon name="notifications-outline"></ion-icon> Notification </a>
+            <a href="#"><ion-icon name="chatbubbles-outline"></ion-icon> Contact Us </a>
+            <a href="#"><ion-icon name="settings-outline"></ion-icon> Setting </a>
+        </div>
+
+        <!-----log oout----->
+        <div class="sidebar-logout">
+            <a href="#"><ion-icon name="log-out-outline"></ion-icon>LogOut</a>
+        </div>
+    </div>
+    <div class="main">
+        <div class="main-navbar">
+            <ion-icon class="menu-toggle" name="menu-outline"></ion-icon>
+            <div class="search">
+                <input type="text" placeholder="What's in your mind?">
+                <button class="search-btn">search</button>
+            </div>
+            <div class="profile">
+                <a class="cart" href="#" onclick="toggleCartPopup()">
+                    <ion-icon name="cart-outline"></ion-icon>
+                    <span class="cart-count" id="cart-count">0</span>
+                </a>
+                <a class="user" href="#"><ion-icon name="person-outline"></ion-icon></a>
+            </div>
+        </div>
+
+        <div id="cart-popup" class="cart-popup">
+            <h4>Shopping cart</h4>
+            <table id="cart-items">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>#</th>
+                        <th>Prices($)</th>
+                        <th>Total($)</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <p>Total($) <span id="cart-total">0.00</span></p>
+            <a class="cart-close" onclick="toggleCartPopup()"><ion-icon name="close-circle-outline"></ion-icon></a>
+        </div>
+        <div class="main-highlight">
+            <div class="main-header">
+                <h2 class="main-title">Recommended</h2>
+                <div class="main-arrow">
+                    <ion-icon class="back" name="chevron-back-circle-outline"></ion-icon>
+                    <ion-icon class="next" name="chevron-forward-circle-outline"></ion-icon>
+                </div>
+
+            </div>
+            <div class="highlight-wrapper">
+                <div class="highlight-card">
+                    <img class="highlight-img" src="img/chow.jpg">
+                    <div class="highlight-decs">
+                        <h4>Noodles</h4>
+                        <p>$10.50</p>
+                    </div>
+                </div>
+                <div class="highlight-card">
+                    <img class="highlight-img" src="img/momo.jpg">
+                    <div class="highlight-decs">
+                        <h4>Momos</h4>
+                        <p>$6.00</p>
+                    </div>
+                </div>
+                <div class="highlight-card">
+                    <img class="highlight-img" src="img/birrrrrr.jpg">
+                    <div class="highlight-decs">
+                        <h4>Biryani</h4>
+                        <p>$50.00</p>
+                    </div>
+                </div>
+                <div class="highlight-card">
+                    <img class="highlight-img" src="img/burger.jpg">
+                    <div class="highlight-decs">
+                        <h4>Burger</h4>
+                        <p>$9.00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-menus">
+            <div class="main-filter">
+                <div>
+                    <h2 class="main-title">Menu <br>Category</h2>
+                    <div class="main-arrow">
+                        <ion-icon class="back-menus" name="chevron-back-circle-outline"></ion-icon>
+                        <ion-icon class="next-menus" name="chevron-forward-circle-outline"></ion-icon>
+                    </div>
+                </div>
+                <div class="filter-wrapper">
+                    <div class="filter-card">
+                        <div class="filter-icon">
+                            <ion-icon name="restaurant-outline"></ion-icon>
+                        </div>
+                        <p> All Menu </p>
+                    </div>
+                    <div class="filter-card">
+                        <div class="filter-icon">
+                            <ion-icon name="fast-food-outline"></ion-icon>
+                        </div>
+                        <p>Burger</p>
+                    </div>
+                    <div class="filter-card">
+                        <div class="filter-icon">
+                            <ion-icon name="wine-outline"></ion-icon>
+                        </div>
+                        <p>Wine</p>
+                    </div>
+                    <div class="filter-card">
+                        <div class="filter-icon">
+                            <ion-icon name="pizza-outline"></ion-icon>
+                        </div>
+                        <p>Pizza</p>
+                    </div>
+                    <div class="filter-card">
+                        <div class="filter-icon">
+                            <ion-icon name="cafe-outline"></ion-icon>
+                        </div>
+                        <p>Coffee</p>
+                    </div>
+                    <div class="filter-card">
+                        <div class="filter-icon">
+                            <ion-icon name="fast-food-outline"></ion-icon>
+                        </div>
+                        <p>Indian</p>
+                    </div>
+                    <div class="filter-card">
+                        <div class="filter-icon">
+                            <ion-icon name="ice-cream-outline"></ion-icon>
+                        </div>
+                        <p>Ice Cream</p>
+                    </div>
+                    <div class="filter-card">
+                        <div class="filter-icon">
+                            <ion-icon name="fish-outline"></ion-icon>
+                        </div>
+                        <p>Sea Food</p>
+                    </div>
+                    <div class="filter-card">
+                        <div class="filter-icon">
+                            <ion-icon name="nutrition-outline"></ion-icon>
+                        </div>
+                        <p>Eat Healthy</p>
+                    </div>
+                </div>
+            </div>
+            <hr class="divider">
+            <h2 class="main-detail">Choose Order</h2>
+            <div class="detail-wrapper">
+                <div class="detail-card">
+                    <img class="detail-img" src="img/sh_soup.jpg">
+                    <div class="detail-desc">
+                        <div class="detail-name">
+                            <h4>Shrimp Soup</h4>
+                            <p class="detail-sub">Lorem ipsum dolor sit amet consectetur um </p>
+                            <p class="Price">$12.00</p>
+                            <button class="add-to-cart-btn" onclick="addToCart('Shrimp Soup',12.00)">Add to cart</button>
+                        </div>
+                        <ion-icon class="detail-favorites" name="bookmark-outline"></ion-icon>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <img class="detail-img" src="img/pizza.jpg">
+                    <div class="detail-desc">
+                        <div class="detail-name">
+                            <h4>Pizza</h4>
+                            <p class="detail-sub">Lorem msjbjkskj jscsjj kjhvh ium amet modi eos?</p>
+                            <p class="Price">$12.50</p>
+                            <button class="add-to-cart-btn" onclick="addToCart('Pizza',12.50)">Add to cart</button>
+                        </div>
+                        <ion-icon class="detail-favorites" name="bookmark-outline"></ion-icon>
+
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <img class="detail-img" src="img/ice.jpg">
+                    <div class="detail-desc">
+                        <div class="detail-name">
+                            <h4>Ice Cream</h4>
+                            <p class="detail-sub">Lorem ipsum dolor sit cabo aliquid </p>
+                            <p class="Price">$25.00</p>
+                            <button class="add-to-cart-btn" onclick="addToCart('Ice Cream',25.00)">Add to cart</button>
+                        </div>
+                        <ion-icon class="detail-favorites" name="bookmark-outline"></ion-icon>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <img class="detail-img" src="img/froed.jpg">
+                    <div class="detail-desc">
+                        <div class="detail-name">
+                            <h4>Rice</h4>
+                            <p class="detail-sub">Lorem ipsum dolor sit amet pedita hic.</p>
+                            <p class="Price">$22.22</p>
+                            <button class="add-to-cart-btn" onclick="addToCart('Rice',22.22)">Add to cart</button>
+                        </div>
+                        <ion-icon class="detail-favorites" name="bookmark-outline"></ion-icon>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <img class="detail-img" src="img/wine.jpg">
+                    <div class="detail-desc">
+                        <div class="detail-name">
+                            <h4>Wine</h4>
+                            <p class="detail-sub">Lorem ipsum dolor sit , alias expedita hic.</p>
+                            <p class="Price">$15.22</p>
+                            <button class="add-to-cart-btn" onclick="addToCart('Wine',15.22)">Add to cart</button>
+                        </div>
+                        <ion-icon class="detail-favorites" name="bookmark-outline"></ion-icon>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <img class="detail-img" src="img/burger.jpg">
+                    <div class="detail-desc">
+                        <div class="detail-name">
+                            <h4>Burger</h4>
+                            <p class="detail-sub">Lorem i f wwef  e fefefpsum dolor sit audantium.</p>
+                            <p class="Price">$10.22</p>
+                            <button class="add-to-cart-btn" onclick="addToCart('Burger',10.22)">Add to cart</button>
+                        </div>
+                        <ion-icon class="detail-favorites" name="bookmark-outline"></ion-icon>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <img class="detail-img" src="img/coffee.jpg">
+                    <div class="detail-desc">
+                        <div class="detail-name">
+                            <h4>Coffee Latte</h4>
+                            <p class="detail-sub"> Repellat porro gggergreg g gg ralias expedita hic.</p>
+                            <p class="Price">$14.22</p>
+                            <button class="add-to-cart-btn" onclick="addToCart('Coffee Latte',14.22)">Add to cart</button>
+                        </div>
+                        <ion-icon class="detail-favorites" name="bookmark-outline"></ion-icon>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <img class="detail-img" src="img/health.jpg">
+                    <div class="detail-desc">
+                        <div class="detail-name">
+                            <h4>Healthy</h4>
+                            <p class="detail-sub">Lorem ipsum dolor alias expedita hic.</p>
+                            <p class="Price">$18.22</p>
+                            <button class="add-to-cart-btn" onclick="addToCart('Healthy',18.22)">Add to cart</button>
+                        </div>
+                        <ion-icon class="detail-favorites" name="bookmark-outline"></ion-icon>
+                    </div>
+                </div>
+</body>
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<script>
+    // showing nav bar when click
+    const mobile = document.querySelector('.menu-toggle');
+    const mobileLink = document.querySelector('.sidebar');
+
+    mobile.addEventListener("click", function(){
+        mobile.classList.toggle("is-active");
+        mobileLink.classList.toggle("active");
+    });
+
+    //// close when click
+    mobileLink.addEventListener("click", function(){
+        const menuBars = document.querySelector(".is-active");
+        if (window.innerWidth <= 768 && menuBars) {
+            mobile.classList.toggle("is-active");
+            mobileLink.classList.toggle("active");
+        }
+    });
+
+    // menu scroll
+    var step = 100;
+    var stepFilter = 60;
+    var scrolling = true;
+
+    document.querySelector(".back").addEventListener("click", function (e) {
+        e.preventDefault();
+        document.querySelector(".highlight-wrapper").scrollBy({
+            left: -step,
+            behavior: 'smooth'
+        });
+    });
+
+    document.querySelector(".next").addEventListener("click", function (e) {
+        e.preventDefault();
+        document.querySelector(".highlight-wrapper").scrollBy({
+            left: step,
+            behavior: 'smooth'
+        });
+    });
+
+    function toggleCartPopup() {
+        const cartPopup = document.getElementById('cart-popup');
+        cartPopup.classList.toggle('active');
+    }
+
+    function addToCart(itemName, itemPrice) {
+        const cartItems = document.getElementById('cart-items').getElementsByTagName('tbody')[0];
+        const existingItem = Array.from(cartItems.getElementsByTagName('tr')).find(item => item.cells[0].textContent === itemName);
+        if (existingItem) {
+            const itemCount = parseInt(existingItem.querySelector('.item-count').textContent) + 1;
+            existingItem.querySelector('.item-count').textContent = itemCount;
+
+            const itemTotal = parseFloat(existingItem.querySelector('.item-total').textContent) + parseFloat(itemPrice);
+            existingItem.querySelector('.item-total').textContent = itemTotal.toFixed(2);
+
+        } else {
+            const newRow = cartItems.insertRow();
+            newRow.innerHTML = `
+                <td>${itemName}</td>
+                <td class='item-count'>1</td>
+                <td class='item-price'>${itemPrice}</td>
+                <td class='item-total'>${itemPrice}</td>
+            `;
+        }
+        updateCartTotal();
+    }
+
+    
+    function updateCartTotal() {
+        const cartItems = document.getElementById('cart-items').getElementsByTagName('tbody')[0];
+        const total = Array.from(cartItems.getElementsByTagName('tr')).reduce((sum, item) => {
+            return sum + parseFloat(item.querySelector('.item-total').textContent);
+        }, 0);
+        document.getElementById('cart-total').textContent = total.toFixed(2);
+        document.getElementById('cart-count').textContent = cartItems.getElementsByTagName('tr').length;
+    }
+
+    function closeCart() {
+        document.getElementById('cart-popup').classList.remove('active');
+    }
+</script>
+
+</html>
