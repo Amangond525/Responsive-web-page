@@ -176,7 +176,7 @@
                     <div class="detail-desc">
                         <div class="detail-name">
                             <h4>Shrimp Soup</h4>
-                            <p class="detail-sub">Lorem ipsum dolor sit amet consectetur um </p>
+                            <p class="detail-sub">A creamy soup with fresh shrimp and herbs.</p>
                             <p class="Price">$12.00</p>
                             <button class="add-to-cart-btn" onclick="addToCart('Shrimp Soup',12.00)">Add to cart</button>
                         </div>
@@ -188,7 +188,7 @@
                     <div class="detail-desc">
                         <div class="detail-name">
                             <h4>Pizza</h4>
-                            <p class="detail-sub">Lorem msjbjkskj jscsjj kjhvh ium amet modi eos?</p>
+                            <p class="detail-sub">Classic cheese pizza with tomato and basil.</p>
                             <p class="Price">$12.50</p>
                             <button class="add-to-cart-btn" onclick="addToCart('Pizza',12.50)">Add to cart</button>
                         </div>
@@ -201,7 +201,7 @@
                     <div class="detail-desc">
                         <div class="detail-name">
                             <h4>Ice Cream</h4>
-                            <p class="detail-sub">Lorem ipsum dolor sit cabo aliquid </p>
+                            <p class="detail-sub">Delicious scoops of chocolate, vanilla & strawberry. </p>
                             <p class="Price">$25.00</p>
                             <button class="add-to-cart-btn" onclick="addToCart('Ice Cream',25.00)">Add to cart</button>
                         </div>
@@ -212,8 +212,8 @@
                     <img class="detail-img" src="img/froed.jpg">
                     <div class="detail-desc">
                         <div class="detail-name">
-                            <h4>Rice</h4>
-                            <p class="detail-sub">Lorem ipsum dolor sit amet pedita hic.</p>
+                            <h4>Fried Rice</h4>
+                            <p class="detail-sub">Fried rice with shrimp and mixed veggies.</p>
                             <p class="Price">$22.22</p>
                             <button class="add-to-cart-btn" onclick="addToCart('Rice',22.22)">Add to cart</button>
                         </div>
@@ -225,7 +225,7 @@
                     <div class="detail-desc">
                         <div class="detail-name">
                             <h4>Wine</h4>
-                            <p class="detail-sub">Lorem ipsum dolor sit , alias expedita hic.</p>
+                            <p class="detail-sub">A selection of fine red and white wines.</p>
                             <p class="Price">$15.22</p>
                             <button class="add-to-cart-btn" onclick="addToCart('Wine',15.22)">Add to cart</button>
                         </div>
@@ -237,7 +237,7 @@
                     <div class="detail-desc">
                         <div class="detail-name">
                             <h4>Burger</h4>
-                            <p class="detail-sub">Lorem i f wwef  e fefefpsum dolor sit audantium.</p>
+                            <p class="detail-sub">Juicy Chicken burger with lettuce and tomato.</p>
                             <p class="Price">$10.22</p>
                             <button class="add-to-cart-btn" onclick="addToCart('Burger',10.22)">Add to cart</button>
                         </div>
@@ -249,7 +249,7 @@
                     <div class="detail-desc">
                         <div class="detail-name">
                             <h4>Coffee Latte</h4>
-                            <p class="detail-sub"> Repellat porro gggergreg g gg ralias expedita hic.</p>
+                            <p class="detail-sub"> Rich espresso with steamed milk and foam art.</p>
                             <p class="Price">$14.22</p>
                             <button class="add-to-cart-btn" onclick="addToCart('Coffee Latte',14.22)">Add to cart</button>
                         </div>
@@ -261,7 +261,7 @@
                     <div class="detail-desc">
                         <div class="detail-name">
                             <h4>Healthy</h4>
-                            <p class="detail-sub">Lorem ipsum dolor alias expedita hic.</p>
+                            <p class="detail-sub">A mix of fresh fruits, nuts, and lean protein.</p>
                             <p class="Price">$18.22</p>
                             <button class="add-to-cart-btn" onclick="addToCart('Healthy',18.22)">Add to cart</button>
                         </div>
@@ -274,85 +274,106 @@
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
 <script>
-    // showing nav bar when click
-    const mobile = document.querySelector('.menu-toggle');
-    const mobileLink = document.querySelector('.sidebar');
+    // Toggle sidebar menu
+const mobile = document.querySelector('.menu-toggle');
+const mobileLink = document.querySelector('.sidebar');
 
-    mobile.addEventListener("click", function(){
-        mobile.classList.toggle("is-active");
-        mobileLink.classList.toggle("active");
-    });
+mobile.addEventListener("click", function(){
+    mobile.classList.toggle("is-active");
+    mobileLink.classList.toggle("active");
+});
 
-    //// close when click
-    mobileLink.addEventListener("click", function(){
-        const menuBars = document.querySelector(".is-active");
-        if (window.innerWidth <= 768 && menuBars) {
-            mobile.classList.toggle("is-active");
-            mobileLink.classList.toggle("active");
-        }
-    });
-
-    // menu scroll
-    var step = 100;
-    var stepFilter = 60;
-    var scrolling = true;
-
-    document.querySelector(".back").addEventListener("click", function (e) {
-        e.preventDefault();
-        document.querySelector(".highlight-wrapper").scrollBy({
-            left: -step,
-            behavior: 'smooth'
-        });
-    });
-
-    document.querySelector(".next").addEventListener("click", function (e) {
-        e.preventDefault();
-        document.querySelector(".highlight-wrapper").scrollBy({
-            left: step,
-            behavior: 'smooth'
-        });
-    });
-
-    function toggleCartPopup() {
-        const cartPopup = document.getElementById('cart-popup');
-        cartPopup.classList.toggle('active');
+// Close sidebar on clicking outside when viewport width is <= 768px
+window.addEventListener("click", function(event) {
+    if (window.innerWidth <= 768 && !mobileLink.contains(event.target) && !mobile.contains(event.target)) {
+        mobile.classList.remove("is-active");
+        mobileLink.classList.remove("active");
     }
+});
 
-    function addToCart(itemName, itemPrice) {
-        const cartItems = document.getElementById('cart-items').getElementsByTagName('tbody')[0];
-        const existingItem = Array.from(cartItems.getElementsByTagName('tr')).find(item => item.cells[0].textContent === itemName);
-        if (existingItem) {
-            const itemCount = parseInt(existingItem.querySelector('.item-count').textContent) + 1;
-            existingItem.querySelector('.item-count').textContent = itemCount;
+// Highlight scroll
+var step = 100;
 
-            const itemTotal = parseFloat(existingItem.querySelector('.item-total').textContent) + parseFloat(itemPrice);
-            existingItem.querySelector('.item-total').textContent = itemTotal.toFixed(2);
+document.querySelector(".back").addEventListener("click", function (e) {
+    e.preventDefault();
+    document.querySelector(".highlight-wrapper").scrollBy({
+        left: -step,
+        behavior: 'smooth'
+    });
+});
 
-        } else {
-            const newRow = cartItems.insertRow();
-            newRow.innerHTML = `
-                <td>${itemName}</td>
-                <td class='item-count'>1</td>
-                <td class='item-price'>${itemPrice}</td>
-                <td class='item-total'>${itemPrice}</td>
-            `;
-        }
-        updateCartTotal();
+document.querySelector(".next").addEventListener("click", function (e) {
+    e.preventDefault();
+    document.querySelector(".highlight-wrapper").scrollBy({
+        left: step,
+        behavior: 'smooth'
+    });
+});
+
+// Filter scroll
+var stepFilter = 60;
+
+document.querySelector(".back-menus").addEventListener("click", function (e) {
+    e.preventDefault();
+    document.querySelector(".filter-wrapper").scrollBy({
+        left: -stepFilter,
+        behavior: 'smooth'
+    });
+});
+
+document.querySelector(".next-menus").addEventListener("click", function (e) {
+    e.preventDefault();
+    document.querySelector(".filter-wrapper").scrollBy({
+        left: stepFilter,
+        behavior: 'smooth'
+    });
+});
+
+// Toggle cart popup
+function toggleCartPopup() {
+    const cartPopup = document.getElementById('cart-popup');
+    cartPopup.classList.toggle('active');
+}
+
+// Add to cart functionality
+function addToCart(itemName, itemPrice) {
+    const cartItems = document.getElementById('cart-items').getElementsByTagName('tbody')[0];
+    const existingItem = Array.from(cartItems.getElementsByTagName('tr')).find(item => item.cells[0].textContent === itemName);
+    if (existingItem) {
+        const itemCount = parseInt(existingItem.querySelector('.item-count').textContent) + 1;
+        existingItem.querySelector('.item-count').textContent = itemCount;
+
+        const itemTotal = parseFloat(existingItem.querySelector('.item-total').textContent) + parseFloat(itemPrice);
+        existingItem.querySelector('.item-total').textContent = itemTotal.toFixed(2);
+
+    } else {
+        const newRow = cartItems.insertRow();
+        newRow.innerHTML = `
+            <td>${itemName}</td>
+            <td class='item-count'>1</td>
+            <td class='item-price'>${itemPrice}</td>
+            <td class='item-total'>${itemPrice}</td>
+        `;
     }
+    updateCartTotal();
+}
+
+// Update cart total
+function updateCartTotal() {
+    const cartItems = document.getElementById('cart-items').getElementsByTagName('tbody')[0];
+    const total = Array.from(cartItems.getElementsByTagName('tr')).reduce((sum, item) => {
+        return sum + parseFloat(item.querySelector('.item-total').textContent);
+    }, 0);
+    document.getElementById('cart-total').textContent = total.toFixed(2);
+    document.getElementById('cart-count').textContent = cartItems.getElementsByTagName('tr').length;
+}
+
+// Close cart popup
+function closeCart() {
+    document.getElementById('cart-popup').classList.remove('active');
+}
 
     
-    function updateCartTotal() {
-        const cartItems = document.getElementById('cart-items').getElementsByTagName('tbody')[0];
-        const total = Array.from(cartItems.getElementsByTagName('tr')).reduce((sum, item) => {
-            return sum + parseFloat(item.querySelector('.item-total').textContent);
-        }, 0);
-        document.getElementById('cart-total').textContent = total.toFixed(2);
-        document.getElementById('cart-count').textContent = cartItems.getElementsByTagName('tr').length;
-    }
-
-    function closeCart() {
-        document.getElementById('cart-popup').classList.remove('active');
-    }
 </script>
 
 </html>
